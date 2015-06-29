@@ -19,13 +19,14 @@
     <script type="application/javascript" src="lib/ship.js"></script>
     <script type="application/javascript">
       var canvasEl = document.getElementById('main-canvas');
-      var dims = [1100, 700];
+      var dims = [1400, 700];
       canvasEl.width = dims[0];
       canvasEl.height = dims[1];
       var ctx = canvasEl.getContext("2d");
       var gameView = new SpaceGame.GameView({ ctx: ctx })
       var game = new SpaceGame.Game({ gameView: gameView, dims: dims });
-      setInterval(function() { game.run() }, 1000 / 60);
+      window.onkeydown = game.handleKeys.bind(game);
+      var interval = setInterval(function() { game.run() }, 1000 / 60);
     </script>
   </body>
 </html>
