@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tetris</title>
+    <title>SpaceGame</title>
     <link rel="stylesheet" href="./css/spacegame.css" charset="utf-8">
   </head>
   <body>
     <div class="main">
       <h1 class="heading">SpaceGame!<h1>
       <div class="canvas-container">
-        <canvas class="main" style="border: 1px solid black"></canvas>
+        <canvas id="main-canvas" style="border: 1px solid black"></canvas>
       </div>
     </div>
 
     <script type="application/javascript" src="lib/util.js"></script>
     <script type="application/javascript" src="lib/gameView.js"></script>
     <script type="application/javascript" src="lib/game.js"></script>
+    <script tyep="application/javascript" src="lib/movingObject.js"></script>
+    <script type="application/javascript" src="lib/projectile.js"></script>
+    <script type="application/javascript" src="lib/ship.js"></script>
     <script type="application/javascript">
-      var canvasEl = document.getElementById('canvas.main');
-      canvasEl.prop("width", 800);
-      canvasEl.prop("height", 800);
+      var canvasEl = document.getElementById('main-canvas');
+      var dims = [800, 800];
+      canvasEl.width = dims[0];
+      canvasEl.height = dims[1];
       var ctx = canvasEl.getContext("2d");
-      var game = new SpaceGame.Game();
-      new SpaceGame.GameView(game, ctx).drawStart();
+      var gameView = new SpaceGame.GameView({ ctx: ctx })
+      var game = new SpaceGame.Game({ gameView: gameView, dims: dims });
+      game.run();
     </script>
   </body>
 </html>
