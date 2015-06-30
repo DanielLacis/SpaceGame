@@ -25,7 +25,8 @@
       var ctx = canvasEl.getContext("2d");
       var gameView = new SpaceGame.GameView({ ctx: ctx })
       var game = new SpaceGame.Game({ gameView: gameView, dims: dims });
-      window.onkeydown = game.handleKeys.bind(game);
+      window.onkeydown = game.handleKeys.bind(game, 'keydown');
+      window.onkeyup = game.handleKeys.bind(game, 'keyup');
       var interval = setInterval(function() { game.run() }, 1000 / 60);
     </script>
   </body>
