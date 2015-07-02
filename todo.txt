@@ -1,2 +1,0 @@
-background objects closely resemble projectiles, much copy/paste
-not modifying yet as background may change completely
