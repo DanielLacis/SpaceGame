@@ -25,7 +25,7 @@
       canvasEl.width = dims[0];
       canvasEl.height = dims[1];
       var ctx = canvasEl.getContext("2d");
-      var gameView = new SpaceGame.GameView({ ctx: ctx })
+      var gameView = new SpaceGame.GameView({ ctx: ctx });
       var game = new SpaceGame.Game({ gameView: gameView, dims: dims });
       window.onkeydown = game.handleKeys.bind(game, 'keydown');
       window.onkeyup = game.handleKeys.bind(game, 'keyup');
